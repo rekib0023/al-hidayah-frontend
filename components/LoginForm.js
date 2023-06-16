@@ -1,6 +1,6 @@
 import { useAuth } from "@/context/AuthProvider";
 import axios from "@/utils/axios";
-import { BACKEND_ENDPOINT, UserType } from "@/utils/constants";
+import { UserType } from "@/utils/constants";
 import { saveToLocalStorage } from "@/utils/localStorage";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -27,7 +27,7 @@ export default function LoginForm({ userType }) {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BACKEND_ENDPOINT}/api/login`, {
+      const response = await axios.post(`api/login`, {
         email,
         password,
         type: userType,

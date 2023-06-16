@@ -17,6 +17,9 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await axios.post("/api/logout");
+
+      setUser(null);
+      localStorage.removeItem("user");
       router.push("/");
     } catch (error) {
       if (error.response) {
@@ -27,8 +30,6 @@ export function AuthProvider({ children }) {
         console.error("Error:", error.message);
       }
     }
-    setUser(null);
-    localStorage.removeItem("user");
   };
 
   const authContextValue = {

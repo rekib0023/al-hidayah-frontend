@@ -3,6 +3,7 @@ import { BACKEND_ENDPOINT } from "./constants";
 
 export default axios.create({
   baseURL: BACKEND_ENDPOINT,
+  withCredentials: true,
 });
 
 export const axiosPrivate = axios.create({
